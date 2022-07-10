@@ -26,9 +26,9 @@ function RandomQuote() {
     }, []);
 
     return (
-        <View>
-            <Text>{quote.text}</Text>
-            <Text>{quote.author}</Text>
+        <View style={styles.rootContainer}>
+            <Text style={styles.quote}>"{quote.text}"</Text>
+            <Text style={styles.author}>-- {quote.author} --</Text>
         </View>
     )
 }

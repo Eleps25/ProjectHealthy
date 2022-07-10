@@ -8,7 +8,9 @@ function MainScreen() {
     return (
         <View>
             <Text>Test</Text>
-            <RandomQuote />
+            <View style={styles.qoutesContainer}>
+                <RandomQuote />
+            </View>
         </View>
     )
 }
