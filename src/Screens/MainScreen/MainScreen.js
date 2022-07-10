@@ -4,6 +4,8 @@ import styles from './MainScreen.style';
 
 import RandomQuote from '../../Components/RandomQuote/index.js';
 
+import Timer from '../../Components/Timer';
+
 function MainScreen() {
     return (
         <View>
@@ -11,6 +13,7 @@ function MainScreen() {
             <View style={styles.qoutesContainer}>
                 <RandomQuote />
             </View>
+            <Timer />
         </View>
     )
 }
