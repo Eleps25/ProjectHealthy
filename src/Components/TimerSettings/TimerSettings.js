@@ -1,23 +1,7 @@
 import { View, Text, Button, TextInput } from 'react-native';
 import { useState } from 'react';
 
-function TimerSettings() {
-    const [switchType, setSwitchType] = useState("");
-    const [time, setTime] = useState("");
-    const [repeat, setRepeat] = useState("");
-    const [isTimerActive, setIsTimerActive] = useState(false);
-
-    const switchTypeHandler = (type) => {
-        setSwitchType(type);
-    }
-
-    const changeTimeHandler = (inputNumber) => {
-        setTime(inputNumber)
-    }
-
-    const changeRepeatHandler = (inputNumber) => {
-        setRepeat(inputNumber)
-    }
+function TimerSettings({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) {
 
     const startTimer = () => {
         if (time == "") {
@@ -42,7 +26,7 @@ function TimerSettings() {
                 <TextInput
                     keyboardType='numeric'
                     value={time}
-                    onChangeText={changeTimeHandler}
+                    onChangeText={changeTime}
                 />
             </View>
             <View>
@@ -50,7 +34,7 @@ function TimerSettings() {
                 <TextInput
                     keyboardType='numeric'
                     value={repeat}
-                    onChangeText={changeRepeatHandler}
+                    onChangeText={changeRepeat}
                 />
             </View>
             <View>
@@ -69,7 +53,6 @@ function TimerSettings() {
                 title="Start Timer"
                 onPress={startTimer}
             />
-            <Text>{isTimerActive ? "true" : "false"}</Text>
         </View>
     )
 }
