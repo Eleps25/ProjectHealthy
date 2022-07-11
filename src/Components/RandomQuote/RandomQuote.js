@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import styles from './RandomQuote.style';
 
-function RandomQuote() {
+const RandomQuote = () => {
     const [quote, setQuote] = useState("");
     const effectRan = useRef(false);
 

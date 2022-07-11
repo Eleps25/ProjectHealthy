@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import styles from './Timer.style';
 
-function Timer() {
+const Timer = () => {
     const navigation = useNavigation();
     const onPressHandler = () => {
         navigation.navigate('TimerScreen');

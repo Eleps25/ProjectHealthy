@@ -7,7 +7,7 @@ import TimerScreen from './Screens/TimerScreen/index.js';
 
 const Stack = createNativeStackNavigator();
 
-function ProjectHealthy() {
+const ProjectHealthy = () => {
     return (
         <>
             <StatusBar style="auto" />

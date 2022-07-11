@@ -6,7 +6,7 @@ import RandomQuote from '../../Components/RandomQuote/index.js';
 
 import Timer from '../../Components/Timer';
 
-function MainScreen() {
+const MainScreen = () => {
     return (
         <View>
             <Text>Test</Text>

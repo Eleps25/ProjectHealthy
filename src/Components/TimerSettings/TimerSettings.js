@@ -1,7 +1,7 @@
 import { View, Text, Button, TextInput } from 'react-native';
 import { useState } from 'react';
 
-function TimerSettings({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) {
+const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
 
     const startTimer = () => {
         if (time == "") {

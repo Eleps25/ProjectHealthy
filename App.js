@@ -3,9 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import ProjectHealthy from './src/index.js';
 
-export default function App() {
+const App = () => {
   return (
     <ProjectHealthy />
   );
 }
 
+export default App;

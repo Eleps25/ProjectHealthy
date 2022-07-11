@@ -6,7 +6,7 @@ import styles from './TimerScreen.style';
 import TimerSettings from '../../Components/TimerSettings/index.js';
 import TimerCountdown from '../../Components/TimerCountdown/index.js';
 
-function TimerScreen() {
+const TimerScreen = () => {
 
     const [switchType, setSwitchType] = useState("");
     const [time, setTime] = useState("");
@@ -24,8 +24,6 @@ function TimerScreen() {
     const changeRepeatHandler = (inputNumber) => {
         setRepeat(inputNumber)
     }
-
-    let component;
 
     return (
         <>

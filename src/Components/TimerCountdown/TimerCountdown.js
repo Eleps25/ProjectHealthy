@@ -3,7 +3,7 @@ import { View, Text, Button, Alert } from 'react-native';
 
 import styles from './TimerCountdown.style';
 
-function TimerCountdown({ switchType, time, repeatNum, changeRepeatHandler }) {
+const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) => {
     const [currentTime, setCurrentTime] = useState(time);
     const intervalRef = useRef(time);
 
