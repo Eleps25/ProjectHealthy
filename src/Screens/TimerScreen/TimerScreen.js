@@ -30,7 +30,12 @@ function TimerScreen() {
     return (
         <>
             {isTimerActive
-                ? <TimerCountdown />
+                ? <TimerCountdown
+                    switchType={switchType}
+                    time={time}
+                    repeatNum={repeat}
+                    changeRepeatHandler={changeRepeatHandler}
+                />
                 : <TimerSettings
                     switchTypeHandler={switchTypeHandler}
                     changeTime={changeTimeHandler}
