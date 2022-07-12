@@ -1,5 +1,7 @@
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { useState } from 'react';
+
+import CustomButton from '../../UI/CustomButton/index.js';
 
 const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
 
@@ -38,18 +40,18 @@ const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimer
                 />
             </View>
             <View>
-                <Button
+                <CustomButton
                     title="Manual"
                     onPress={() => switchTypeHandler("Manual")}
                     disabled={switchType === "Manual" && switchType !== ""}
                 />
-                <Button
+                <CustomButton
                     title="Automatic"
                     onPress={() => switchTypeHandler("Automatic")}
                     disabled={switchType === "Automatic" && switchType !== ""}
                 />
             </View>
-            <Button
+            <CustomButton
                 title="Start Timer"
                 onPress={startTimer}
             />

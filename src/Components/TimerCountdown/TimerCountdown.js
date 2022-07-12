@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
-import { View, Text, Button, Alert } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 
 import styles from './TimerCountdown.style';
+import CustomButton from '../../UI/CustomButton/index.js';
 
 const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) => {
     const [currentTime, setCurrentTime] = useState(time);
@@ -48,7 +49,7 @@ const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) =>
                 <Text>{repeatNum}</Text>
             </View>
             {(switchType == "Manual") &&
-                <Button
+                <CustomButton
                     title="Next repeat"
                     onPress={resetTimer}
                     disabled={repeatNum > 0 ? false : true}
