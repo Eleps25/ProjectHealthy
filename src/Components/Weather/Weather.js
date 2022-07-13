@@ -8,30 +8,31 @@ import styles from "./Weather.style";
 
 const Weather = () => {
     //const { temp, desc, weatherId, iconId } = useGetWeather(49.195061, 16.606836);
-    const weatherId = 800;
+    //temporary values
+    const weatherId = 500;
     const temp = 20;
-    const desc = "polojasno";
+    const desc = "light rain";
     const [tip, setTip] = useState("");
 
     useEffect(() => {
         if (temp >= 20 && (weatherId >= 800 && weatherId < 804)) {
-            setTip("Ideální počasí na pobyt v přírodě");
-        } else if (temp < 20 && (weatherId >= 800 && weatherId < 804)) {
-            setTip("Počasí na pobyt venku, doporučujeme se lépe obléct");
+            setTip("Ideal weather for outside exercise");
+        } else if (temp < 15 && (weatherId >= 800 && weatherId < 804)) {
+            setTip("Weather is suitable for outside exercise but we recommend to take good clothes");
         } else if (temp >= 15 && weatherId == 804) {
-            setTip("Pro pobyt venku se doporučujeme obléct");
+            setTip("We recommend to go out but be prepared for possible rain");
         } else {
-            setTip("Doporučujeme dnes zůstat uvnitř")
+            setTip("Today we recommend to stay inside")
         }
     }, [temp, weatherId])
 
     return (
-        <View>
-            <Text>Weather</Text>
+        <View style={styles.rootContainer}>
+            <Text style={styles.title}>Current Weather</Text>
+            <Text style={styles.city}>Brno</Text>
             <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/10d@2x.png` }} />
-            <Text>data-temp:  {temp}</Text>
-            <Text>data-desc:  {desc}</Text>
-            <Text>Náš tip: {tip}</Text>
+            <Text style={styles.temperature}>{temp}°C - {desc}</Text>
+            <Text style={styles.tipContainer}><Text style={styles.ourTip}>Our tip: </Text>{tip}</Text>
         </View>
     )
 }

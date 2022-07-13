@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 
 import styles from './MainScreen.style';
 
@@ -8,13 +8,15 @@ import Timer from '../../Components/Timer';
 
 const MainScreen = () => {
     return (
-        <View style={styles.rootContainer}>
-            <Weather />
-            <View style={styles.qoutesContainer}>
-                <RandomQuote />
+        <ScrollView style={{ height: '100%', width: '100%', flex: 1 }}>
+            <View style={styles.rootContainer}>
+                <View style={styles.qoutesContainer}>
+                    <RandomQuote />
+                </View>
+                <Weather />
+                <Timer />
             </View>
-            <Timer />
-        </View>
+        </ScrollView>
     )
 }
 

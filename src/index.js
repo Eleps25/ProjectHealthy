@@ -10,15 +10,18 @@ const Stack = createNativeStackNavigator();
 const ProjectHealthy = () => {
     return (
         <>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
             <NavigationContainer>
-                <Stack.Navigator>
+                <Stack.Navigator screenOptions={{
+                    headerStyle: { backgroundColor: '#0077b6' },
+                    headerTintColor: 'white'
+                }}>
                     <Stack.Screen
-                        name="MainScreen"
+                        name="Home"
                         component={MainScreen}
                     />
                     <Stack.Screen
-                        name="TimerScreen"
+                        name="Exercise Countdown"
                         component={TimerScreen}
                     />
                 </Stack.Navigator>
