@@ -1,14 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import MainScreen from './src/Screens/MainScreen/index.js';
+import ProjectHealthy from './src/index.js';
 
 export default function App() {
   return (
-    <View>
-      <MainScreen />
-      <StatusBar style="auto" />
-    </View>
+    <ProjectHealthy />
   );
 }
 
