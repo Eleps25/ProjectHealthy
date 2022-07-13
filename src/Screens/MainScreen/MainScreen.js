@@ -8,7 +8,7 @@ import Timer from '../../Components/Timer';
 
 const MainScreen = () => {
     return (
-        <View>
+        <View style={styles.rootContainer}>
             <Weather />
             <View style={styles.qoutesContainer}>
                 <RandomQuote />

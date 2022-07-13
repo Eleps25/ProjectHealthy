@@ -14,7 +14,7 @@ const useApiFetch = (url) => {
         }
 
         fetchData()
-    }, [])
+    })
 
     return { data, isLoad }
 }
