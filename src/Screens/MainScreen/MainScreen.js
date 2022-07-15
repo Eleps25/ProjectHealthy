@@ -1,19 +1,29 @@
 import { ScrollView, View, Text } from 'react-native';
+import { useState } from 'react';
 
 import styles from './MainScreen.style';
 
 import RandomQuote from '../../Components/RandomQuote/index.js';
-import Weather from '../../Components/Weather';
-import Timer from '../../Components/Timer';
+import CityPick from '../../Components/CityPick/index';
+import Weather from '../../Components/Weather/index';
+import Timer from '../../Components/Timer/index';
 
 const MainScreen = () => {
+    const [isCityPicked, setIsCityPicked] = useState(false);
+    const [city, setCity] = useState("")
+
+    const pickCityHandler = (city) => {
+        setCity(city)
+        setIsCityPicked(true)
+    }
+
     return (
         <ScrollView style={{ height: '100%', width: '100%', flex: 1 }}>
             <View style={styles.rootContainer}>
                 <View style={styles.qoutesContainer}>
                     <RandomQuote />
                 </View>
-                <Weather />
+                {isCityPicked ? <Weather cityName={city} /> : <CityPick pickCityHandler={pickCityHandler} />}
                 <Timer />
             </View>
         </ScrollView>

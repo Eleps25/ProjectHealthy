@@ -5,11 +5,9 @@ import styles from './RandomQuote.style';
 import useApiFetch from '../../customHooks/useApiFetch';
 
 const RandomQuote = () => {
-    console.log("quote1")
     const [quote, setQuote] = useState("");
     const { data, isLoad } = useApiFetch('https://type.fit/api/quotes');
 
-    console.log("quote2")
 
     useEffect(() => {
         if (isLoad) {
