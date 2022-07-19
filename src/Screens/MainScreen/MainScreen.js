@@ -9,12 +9,12 @@ import Weather from '../../Components/Weather/index';
 import Timer from '../../Components/Timer/index';
 
 const MainScreen = () => {
-    const [isCityPicked, setIsCityPicked] = useState(false);
+    const [isCityPicked, setCityPicked] = useState(false);
     const [city, setCity] = useState("")
 
     const pickCityHandler = (city) => {
         setCity(city)
-        setIsCityPicked(true)
+        setCityPicked(true)
     }
 
     return (

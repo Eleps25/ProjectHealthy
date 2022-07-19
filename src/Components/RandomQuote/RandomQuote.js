@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { ActivityIndicator, View, Text } from 'react-native';
 import { useState, useEffect } from 'react';
 
 import styles from './RandomQuote.style';
@@ -23,7 +23,7 @@ const RandomQuote = () => {
                     <Text style={styles.quote}>"{quote.text}"</Text>
                     <Text style={styles.author}>-- {quote.author} --</Text>
                 </>
-                : <Text>Loading...</Text>
+                : <ActivityIndicator />
             }
         </View>
     )
