@@ -1,29 +1,20 @@
 import { View, Text } from 'react-native';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import styles from './RandomQuote.style';
+import useApiFetch from '../../customHooks/useApiFetch';
 
-function RandomQuote() {
+const RandomQuote = () => {
     const [quote, setQuote] = useState("");
-    const effectRan = useRef(false);
+    const { data, isLoad } = useApiFetch('https://type.fit/api/quotes');
+
 
     useEffect(() => {
-        if (effectRan.current === false) {
-            const fetchQuotes = async () => {
-                const res = await fetch("https://type.fit/api/quotes");
-                const data = await res.json();
-
-                const rndNum = Math.floor(Math.random() * data.length);
-                setQuote(data[rndNum])
-            }
-
-            fetchQuotes();
-
-            return () => {
-                effectRan.current = true;
-            }
+        if (isLoad) {
+            const rndNum = Math.floor(Math.random() * data.length);
+            setQuote(data[rndNum])
         }
-    }, []);
+    }, [isLoad])
 
     return (
         <View style={styles.rootContainer}>
