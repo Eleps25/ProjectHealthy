@@ -1,7 +1,7 @@
 import { View, Text, TextInput } from 'react-native';
 
-import styles from './TimerSettings.style.js';
-import CustomButton from '../../UI/CustomButton/index.js';
+import styles from './TimerSettings.style';
+import CustomButton from '../../UI/CustomButton/index';
 
 const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
 

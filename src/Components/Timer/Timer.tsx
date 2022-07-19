@@ -2,7 +2,7 @@ import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from './Timer.style';
-import CustomButton from '../../UI/CustomButton/index.js';
+import CustomButton from '../../UI/CustomButton/index';
 
 const Timer = () => {
     const navigation = useNavigation();

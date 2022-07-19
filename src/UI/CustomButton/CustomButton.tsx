@@ -1,6 +1,6 @@
 import { Text, View, Pressable } from 'react-native';
 
-import styles from './CustomButton.style.js';
+import styles from './CustomButton.style';
 
 const CustomButton = ({ title, onPress, disabled, style }) => (
     <Pressable

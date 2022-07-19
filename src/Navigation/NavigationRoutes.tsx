@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import MainScreen from '../Screens/MainScreen/index.js';
-import TimerScreen from '../Screens/TimerScreen/index.js';
+import MainScreen from '../Screens/MainScreen/index';
+import TimerScreen from '../Screens/TimerScreen/index';
 
 const Stack = createNativeStackNavigator();
 

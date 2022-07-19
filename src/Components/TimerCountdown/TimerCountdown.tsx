@@ -3,7 +3,7 @@ import { View, Text, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from './TimerCountdown.style';
-import CustomButton from '../../UI/CustomButton/index.js';
+import CustomButton from '../../UI/CustomButton/index';
 
 const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) => {
     const [currentTime, setCurrentTime] = useState(time);

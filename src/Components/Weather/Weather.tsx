@@ -1,7 +1,7 @@
 import { ActivityIndicator, View, Text, Image } from "react-native";
 import { useState, useEffect } from "react";
 
-import useGetWeather from "../../customHooks/useGetWeather.js";
+import useGetWeather from "../../customHooks/useGetWeather";
 
 import styles from "./Weather.style";
 

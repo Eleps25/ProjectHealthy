@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import styles from './TimerScreen.style';
 
-import TimerSettings from '../../Components/TimerSettings/index.js';
-import TimerCountdown from '../../Components/TimerCountdown/index.js';
+import TimerSettings from '../../Components/TimerSettings/index';
+import TimerCountdown from '../../Components/TimerCountdown/index';
 
 const TimerScreen = () => {
 
