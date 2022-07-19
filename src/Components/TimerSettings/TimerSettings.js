@@ -1,6 +1,6 @@
 import { View, Text, TextInput } from 'react-native';
-import { useState } from 'react';
 
+import styles from './TimerSettings.style.js';
 import CustomButton from '../../UI/CustomButton/index.js';
 
 const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
@@ -22,38 +22,47 @@ const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimer
     }
 
     return (
-        <View>
-            <View>
-                <Text>Time(s)</Text>
-                <TextInput
-                    keyboardType='numeric'
-                    value={time}
-                    onChangeText={changeTime}
-                />
-            </View>
-            <View>
-                <Text>Numbers of repeat</Text>
-                <TextInput
-                    keyboardType='numeric'
-                    value={repeat}
-                    onChangeText={changeRepeat}
-                />
-            </View>
-            <View>
-                <CustomButton
-                    title="Manual"
-                    onPress={() => switchTypeHandler("Manual")}
-                    disabled={switchType === "Manual" && switchType !== ""}
-                />
-                <CustomButton
-                    title="Automatic"
-                    onPress={() => switchTypeHandler("Automatic")}
-                    disabled={switchType === "Automatic" && switchType !== ""}
-                />
+        <View style={styles.rootContainer}>
+            <View style={styles.choicesContainer}>
+                <View style={styles.inputsContainer}>
+                    <View style={styles.timeContainer}>
+                        <Text style={styles.timeTitle}>Time (s)</Text>
+                        <TextInput
+                            keyboardType='numeric'
+                            value={time}
+                            onChangeText={changeTime}
+                            style={styles.timeInput}
+                        />
+                    </View>
+                    <View style={styles.repetitionContainer}>
+                        <Text style={styles.repetitionTitle}>Numbers of repetitions</Text>
+                        <TextInput
+                            keyboardType='numeric'
+                            value={repeat}
+                            onChangeText={changeRepeat}
+                            style={styles.repetitionInput}
+                        />
+                    </View>
+                </View>
+                <View style={styles.buttonsContainer}>
+                    <CustomButton
+                        title="Manual"
+                        onPress={() => switchTypeHandler("Manual")}
+                        disabled={switchType === "Manual" && switchType !== ""}
+                        style={styles.choiceButton}
+                    />
+                    <CustomButton
+                        title="Automatic"
+                        onPress={() => switchTypeHandler("Automatic")}
+                        disabled={switchType === "Automatic" && switchType !== ""}
+                        style={styles.choiceButton}
+                    />
+                </View>
             </View>
             <CustomButton
                 title="Start Timer"
                 onPress={startTimer}
+                style={styles.startButton}
             />
         </View>
     )

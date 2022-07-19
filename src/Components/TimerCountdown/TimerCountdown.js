@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { View, Text, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './TimerCountdown.style';
 import CustomButton from '../../UI/CustomButton/index.js';
@@ -7,6 +8,7 @@ import CustomButton from '../../UI/CustomButton/index.js';
 const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) => {
     const [currentTime, setCurrentTime] = useState(time);
     const intervalRef = useRef(time);
+    const navigation = useNavigation();
 
     const resetTimer = () => {
         setCurrentTime(time);
@@ -34,25 +36,28 @@ const TimerCountdown = ({ switchType, time, repeatNum, changeRepeatHandler }) =>
 
     useEffect(() => {
         if (repeatNum == 0 && intervalRef.current == 0) {
-            Alert.alert("Workout Completed", "You have completed this workout", [{ text: "OK", onPress: () => console.log("alert closed") }]);
+            Alert.alert("Workout Completed", "You have completed this workout", [{ text: "OK", onPress: () => navigation.navigate('Home') }]);
         }
     }, [repeatNum, intervalRef.current])
 
     return (
-        <View>
-            <View>
-                <Text>Time Remaining</Text>
-                <Text>{currentTime}</Text>
-            </View>
-            <View>
-                <Text>Repeats Remaining</Text>
-                <Text>{repeatNum}</Text>
+        <View style={styles.rootContainer}>
+            <View style={styles.countContainer}>
+                <View style={styles.timeContainer}>
+                    <Text style={styles.timeTitle}>Time Remaining</Text>
+                    <Text style={styles.timeCountdown}>{currentTime}</Text>
+                </View>
+                <View style={styles.repetitionContainer}>
+                    <Text style={styles.repetitionTitle}>Repeats Remaining</Text>
+                    <Text style={styles.repettionCounter}>{repeatNum}</Text>
+                </View>
             </View>
             {(switchType == "Manual") &&
                 <CustomButton
                     title="Next repeat"
                     onPress={resetTimer}
                     disabled={repeatNum > 0 ? false : true}
+                    style={styles.button}
                 />
             }
         </View>

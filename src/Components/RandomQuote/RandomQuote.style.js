@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     rootContainer: {
-        backgroundColor: '#1dd3b0',
+        backgroundColor: '#fdc500',
         borderWidth: 2,
-        borderColor: '#24a58b',
+        borderRadius: 5,
+        borderColor: '#ffc300',
         elevation: 4,
         width: '90%',
         height: 100,
@@ -14,10 +15,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5
     },
     quote: {
+        fontSize: 15,
         fontStyle: 'italic',
         fontWeight: 'bold'
     },
     author: {
+        fontSize: 15,
         fontWeight: '300',
         fontStyle: 'italic'
     }
