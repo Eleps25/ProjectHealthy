@@ -19,7 +19,7 @@ const useGetWeather = () => {
         }
     }, [isLoad])
 
-    return { temp, desc, weatherId, iconId }
+    return { temp, desc, weatherId, iconId, isLoad }
 }
 
 export default useGetWeather;

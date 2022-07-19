@@ -18,8 +18,13 @@ const RandomQuote = () => {
 
     return (
         <View style={styles.rootContainer}>
-            <Text style={styles.quote}>"{quote.text}"</Text>
-            <Text style={styles.author}>-- {quote.author} --</Text>
+            {isLoad ?
+                <>
+                    <Text style={styles.quote}>"{quote.text}"</Text>
+                    <Text style={styles.author}>-- {quote.author} --</Text>
+                </>
+                : <Text>Loading...</Text>
+            }
         </View>
     )
 }

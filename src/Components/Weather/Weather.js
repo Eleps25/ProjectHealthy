@@ -7,8 +7,9 @@ import useGetWeather from "../../customHooks/useGetWeather";
 import styles from "./Weather.style";
 
 const Weather = () => {
-    //const { temp, desc, weatherId, iconId } = useGetWeather(49.195061, 16.606836);
+    //const { temp, desc, weatherId, iconId, isLoad } = useGetWeather(49.195061, 16.606836);
     //temporary values
+    const isLoad = true;
     const weatherId = 500;
     const temp = 20;
     const desc = "light rain";
@@ -28,11 +29,17 @@ const Weather = () => {
 
     return (
         <View style={styles.rootContainer}>
-            <Text style={styles.title}>Current Weather</Text>
-            <Text style={styles.city}>Brno</Text>
-            <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/10d@2x.png` }} />
-            <Text style={styles.temperature}>{temp}°C - {desc}</Text>
-            <Text style={styles.tipContainer}><Text style={styles.ourTip}>Our tip: </Text>{tip}</Text>
+            {isLoad ?
+                <>
+                    <Text style={styles.title}>Current Weather</Text>
+                    <Text style={styles.city}>Brno</Text>
+                    <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/10d@2x.png` }} />
+                    <Text style={styles.temperature}>{temp}°C - {desc}</Text>
+                    <Text style={styles.tipContainer}><Text style={styles.ourTip}>Our tip: </Text>{tip}</Text>
+                </>
+                :
+                <Text>Loading...</Text>
+            }
         </View>
     )
 }
