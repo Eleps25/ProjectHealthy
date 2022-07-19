@@ -1,40 +1,35 @@
 import { View, Text, Image } from "react-native";
 import { useState, useEffect } from "react";
 
-import useGetWeather from "../../customHooks/useGetWeather";
-
+import useGetWeather from "../../customHooks/useGetWeather.js";
 
 import styles from "./Weather.style";
 
-const Weather = () => {
-    //const { temp, desc, weatherId, iconId, isLoad } = useGetWeather(49.195061, 16.606836);
-    //temporary values
-    const isLoad = true;
-    const weatherId = 500;
-    const temp = 20;
-    const desc = "light rain";
-    const [tip, setTip] = useState("");
+
+const Weather = ({ cityName }) => {
+    const { info, isWeatherLoad } = useGetWeather(cityName);
+    const [tip, setTip] = useState("test");
 
     useEffect(() => {
-        if (temp >= 20 && (weatherId >= 800 && weatherId < 804)) {
+        if (info.temp >= 20 && (info.weatherId >= 800 && info.weatherId < 804)) {
             setTip("Ideal weather for outside exercise");
-        } else if (temp < 15 && (weatherId >= 800 && weatherId < 804)) {
+        } else if (info.temp < 15 && (info.weatherId >= 800 && info.weatherId < 804)) {
             setTip("Weather is suitable for outside exercise but we recommend to take good clothes");
-        } else if (temp >= 15 && weatherId == 804) {
+        } else if (info.temp >= 15 && info.weatherId == 804) {
             setTip("We recommend to go out but be prepared for possible rain");
         } else {
             setTip("Today we recommend to stay inside")
         }
-    }, [temp, weatherId])
+    }, [isWeatherLoad])
 
     return (
         <View style={styles.rootContainer}>
-            {isLoad ?
+            {isWeatherLoad ?
                 <>
                     <Text style={styles.title}>Current Weather</Text>
-                    <Text style={styles.city}>Brno</Text>
-                    <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/10d@2x.png` }} />
-                    <Text style={styles.temperature}>{temp}°C - {desc}</Text>
+                    <Text style={styles.city}>{cityName}</Text>
+                    <Image style={styles.image} source={{ uri: `http://openweathermap.org/img/wn/${info.iconId}@2x.png` }} />
+                    <Text style={styles.temperature}>{info.temp}°C - {info.desc}</Text>
                     <Text style={styles.tipContainer}><Text style={styles.ourTip}>Our tip: </Text>{tip}</Text>
                 </>
                 :
