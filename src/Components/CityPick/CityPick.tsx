@@ -1,19 +1,24 @@
-import { View, Text, TextInput } from "react-native";
+import React from 'react';
+import { View, Text, TextInput, Alert } from "react-native";
 import { useState } from "react";
 
 import CustomButton from "../../UI/CustomButton";
 import styles from "./CItyPick.style";
 
-const CityPick = ({ pickCityHandler }) => {
+export type CityPickProps = {
+    pickCityHandler: any
+}
+
+const CityPick: React.FC<CityPickProps> = ({ pickCityHandler }) => {
     const [cityInput, setCityInput] = useState("");
 
-    const onChangeText = (text) => {
+    const onChangeText = (text: string) => {
         setCityInput(text);
     }
 
     const validate = () => {
         if (!cityInput) {
-            alert("Please add city name");
+            Alert.alert("Something wrong with 'City'", "Please add city name", [{ text: "OK" }]);
         } else {
             pickCityHandler(cityInput)
         }
@@ -31,6 +36,7 @@ const CityPick = ({ pickCityHandler }) => {
                 title="Confirm City"
                 onPress={validate}
                 style={styles.button}
+                disabled={false}
             />
         </View>
     )

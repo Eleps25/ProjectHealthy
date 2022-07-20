@@ -1,8 +1,16 @@
+import React from 'react';
 import { Text, View, Pressable } from 'react-native';
 
 import styles from './CustomButton.style';
 
-const CustomButton = ({ title, onPress, disabled, style }) => (
+interface CustomButton {
+    title: string,
+    onPress(): any,
+    disabled: boolean,
+    style: any
+}
+
+const CustomButton: React.FC<CustomButton> = ({ title, onPress, disabled, style }) => (
     <Pressable
         onPress={onPress}
         disabled={disabled}

@@ -4,7 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainScreen from '../Screens/MainScreen/index';
 import TimerScreen from '../Screens/TimerScreen/index';
 
-const Stack = createNativeStackNavigator();
+export type StackParams = {
+    Home,
+    ExerciseCountdown
+}
+
+const Stack = createNativeStackNavigator<StackParams>();
 
 const NavigationRoutes = () => (
     <NavigationContainer>
@@ -17,7 +22,7 @@ const NavigationRoutes = () => (
                 component={MainScreen}
             />
             <Stack.Screen
-                name="Exercise Countdown"
+                name="ExerciseCountdown"
                 component={TimerScreen}
             />
         </Stack.Navigator>

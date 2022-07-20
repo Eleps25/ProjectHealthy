@@ -1,3 +1,4 @@
+import React from 'react';
 import { ActivityIndicator, View, Text, Image } from "react-native";
 import { useState, useEffect } from "react";
 
@@ -5,8 +6,11 @@ import useGetWeather from "../../customHooks/useGetWeather";
 
 import styles from "./Weather.style";
 
+export type WeatherProps = {
+    cityName: string
+}
 
-const Weather = ({ cityName }) => {
+const Weather: React.FC<WeatherProps> = ({ cityName }) => {
     console.log("call1")
     const { info, isWeatherLoad } = useGetWeather(cityName);
     const [tip, setTip] = useState("test");

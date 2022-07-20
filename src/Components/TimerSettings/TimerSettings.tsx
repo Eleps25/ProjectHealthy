@@ -1,21 +1,32 @@
-import { View, Text, TextInput } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, Alert } from 'react-native';
 
 import styles from './TimerSettings.style';
 import CustomButton from '../../UI/CustomButton/index';
 
-const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
+export type TimerSettingsProps = {
+    switchTypeHandler: any,
+    changeTime: any,
+    changeRepeat: any,
+    setIsTimerActive: any,
+    switchType: string,
+    time: string,
+    repeat: string
+}
+
+const TimerSettings: React.FC<TimerSettingsProps> = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimerActive, switchType, time, repeat }) => {
 
     const startTimer = () => {
         if (time == "") {
-            alert("Please add number to time");
+            Alert.alert("Something wrong with 'Time'", "Please add number to time", [{ text: "OK" }]);
         } else if (parseInt(time) < 0) {
-            alert("Please add number higher or equal to 0 to time");
+            Alert.alert("Something wrong with 'Time'", "Please add number higher or equal to 0 to time", [{ text: "OK" }]);
         } else if (repeat == "") {
-            alert("Please add number to repeat times");
+            Alert.alert("Something wrong with 'Repetion'", "Please add number to repeat times", [{ text: "OK" }]);
         } else if (parseInt(repeat) < 0) {
-            alert("Please add number higher or equal to 0 to repeat times");
+            Alert.alert("Something wrong with 'Repetion'", "Please add number higher or equal to 0 to repeat times", [{ text: "OK" }]);
         } else if (switchType === "") {
-            alert("Please choose switch type");
+            Alert.alert("Something wrong with 'Type'", "Please choose switch type", [{ text: "OK" }]);
         } else {
             setIsTimerActive(true);
         }
@@ -48,13 +59,13 @@ const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimer
                     <CustomButton
                         title="Manual"
                         onPress={() => switchTypeHandler("Manual")}
-                        disabled={switchType === "Manual" && switchType !== ""}
+                        disabled={switchType === "Manual" && switchType !== null}
                         style={styles.choiceButton}
                     />
                     <CustomButton
                         title="Automatic"
                         onPress={() => switchTypeHandler("Automatic")}
-                        disabled={switchType === "Automatic" && switchType !== ""}
+                        disabled={switchType === "Automatic" && switchType !== null}
                         style={styles.choiceButton}
                     />
                 </View>
@@ -63,6 +74,7 @@ const TimerSettings = ({ switchTypeHandler, changeTime, changeRepeat, setIsTimer
                 title="Start Timer"
                 onPress={startTimer}
                 style={styles.startButton}
+                disabled={false}
             />
         </View>
     )

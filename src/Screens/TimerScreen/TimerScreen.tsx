@@ -1,10 +1,14 @@
 import { View, Text, Button } from 'react-native';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 import styles from './TimerScreen.style';
 
 import TimerSettings from '../../Components/TimerSettings/index';
 import TimerCountdown from '../../Components/TimerCountdown/index';
+
+interface TimerCountdown {
+
+}
 
 const TimerScreen = () => {
 
@@ -13,15 +17,15 @@ const TimerScreen = () => {
     const [repeat, setRepeat] = useState("");
     const [isTimerActive, setIsTimerActive] = useState(false);
 
-    const switchTypeHandler = (type) => {
+    const switchTypeHandler = (type: string) => {
         setSwitchType(type);
     }
 
-    const changeTimeHandler = (inputNumber) => {
+    const changeTimeHandler = (inputNumber: string) => {
         setTime(inputNumber)
     }
 
-    const changeRepeatHandler = (inputNumber) => {
+    const changeRepeatHandler = (inputNumber: string) => {
         setRepeat(inputNumber)
     }
 
