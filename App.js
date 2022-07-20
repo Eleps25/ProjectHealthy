@@ -1,4 +1,4 @@
-import ProjectHealthy from './src/index.js';
+import ProjectHealthy from './src/index.tsx';
 
 const App = () => {
   return (
