@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useGetWeather = (cityName) => {
+interface info {
+    temp: number,
+    weatherId: number,
+    desc: string,
+    iconId: string
+}
+
+const useGetWeather = (cityName: string) => {
+
+    console.log("api1")
 
     const [isWeatherLoad, setIsWeatherLoad] = useState(false);
-    const [info, setInfo] = useState("");
+    const [info, setInfo] = useState<info>({ temp: 0, weatherId: 0, desc: "", iconId: "" });
+
+    console.log("api2")
 
     useEffect(() => {
 
@@ -20,6 +31,8 @@ const useGetWeather = (cityName) => {
         fetchData()
 
     }, [])
+
+    console.log("api3")
 
 
     return { info, isWeatherLoad }

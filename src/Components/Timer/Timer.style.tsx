@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         shadowRadius: 20,
         shadowOffset: { width: 2, height: 2 },
         elevation: 5,
-        width: '95%',
+        //width: '95%',
         justifyContent: 'space-around',
         alignItems: 'center',
         marginBottom: 10

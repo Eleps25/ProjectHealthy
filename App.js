@@ -1,7 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-import ProjectHealthy from './src/index.js';
+import ProjectHealthy from './src/index.tsx';
 
 const App = () => {
   return (
