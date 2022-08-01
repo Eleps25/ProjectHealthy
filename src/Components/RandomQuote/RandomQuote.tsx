@@ -1,17 +1,23 @@
-import { View, Text } from 'react-native';
+import React from 'react';
+import { ActivityIndicator, View, Text } from 'react-native';
 import { useState, useEffect } from 'react';
 
 import styles from './RandomQuote.style';
 import useApiFetch from '../../customHooks/useApiFetch';
 
-const RandomQuote = () => {
-    const [quote, setQuote] = useState("");
+interface Quote {
+    text: string,
+    author: string
+}
+
+const RandomQuote: React.FC = () => {
+    const [quote, setQuote] = useState<Quote>({ text: "", author: "" });
     const { data, isLoad } = useApiFetch('https://type.fit/api/quotes');
 
 
     useEffect(() => {
         if (isLoad) {
-            const rndNum = Math.floor(Math.random() * data.length);
+            const rndNum: number = Math.floor(Math.random() * Object.keys(data).length);
             setQuote(data[rndNum])
         }
     }, [isLoad])
@@ -23,7 +29,7 @@ const RandomQuote = () => {
                     <Text style={styles.quote}>"{quote.text}"</Text>
                     <Text style={styles.author}>-- {quote.author} --</Text>
                 </>
-                : <Text>Loading...</Text>
+                : <ActivityIndicator />
             }
         </View>
     )

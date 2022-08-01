@@ -3,18 +3,19 @@ import { useState } from 'react';
 
 import styles from './MainScreen.style';
 
-import RandomQuote from '../../Components/RandomQuote/index.js';
+import RandomQuote from '../../Components/RandomQuote/index';
 import CityPick from '../../Components/CityPick/index';
 import Weather from '../../Components/Weather/index';
 import Timer from '../../Components/Timer/index';
 
+
 const MainScreen = () => {
-    const [isCityPicked, setIsCityPicked] = useState(false);
+    const [isCityPicked, setCityPicked] = useState(false);
     const [city, setCity] = useState("")
 
-    const pickCityHandler = (city) => {
+    const pickCityHandler = (city: string) => {
         setCity(city)
-        setIsCityPicked(true)
+        setCityPicked(true)
     }
 
     return (

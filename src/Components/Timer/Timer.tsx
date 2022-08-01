@@ -1,13 +1,16 @@
+import React from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from './Timer.style';
-import CustomButton from '../../UI/CustomButton/index.js';
+import CustomButton from '../../UI/CustomButton/index';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackParams } from '../../Navigation/NavigationRoutes';
 
 const Timer = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
     const onPressHandler = () => {
-        navigation.navigate('Exercise Countdown');
+        navigation.navigate('ExerciseCountdown');
     }
 
     return (
@@ -18,6 +21,7 @@ const Timer = () => {
                 title='Set Countdown'
                 onPress={onPressHandler}
                 style={styles.button}
+                disabled={false}
             />
         </View>
     )
